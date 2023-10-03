@@ -25,6 +25,10 @@ public class Produto {
         this.categoria = categoria;
     }
 
+    public Produto() {
+
+    }
+
 
     public LocalDate getDataCadastro() {
         return dataCadastro;
