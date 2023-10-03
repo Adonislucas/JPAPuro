@@ -16,10 +16,11 @@ public class CadastroDeProduto {
     public static void main(String[] args) {
 
 
-
-
         EntityManager em = getEntityManager();
+
         ProdutoDAO produtoDAO = new ProdutoDAO(em);
+
+
         Produto p = produtoDAO.buscarPorId(1l);
         System.out.println(p.getPreco());
         List<Produto> nome = produtoDAO.buscarPorCategoria("Celulares");
