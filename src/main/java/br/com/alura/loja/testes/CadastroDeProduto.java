@@ -20,10 +20,7 @@ public class CadastroDeProduto {
         celular.setDescricao("Muito legal");
         celular.setPreco(new BigDecimal("800"));
 
-        Cliente c1 = new Cliente();
-        c1.setNome("Rosana");
-        c1.setTelefone("(61)99680-6783");
-        c1.setEndereco("Qnm 19 casa 30");
+       
 
 
         em.getTransaction().begin();
