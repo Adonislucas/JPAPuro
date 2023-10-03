@@ -1,33 +1,32 @@
 package br.com.alura.loja.testes;
 
 
+import br.com.alura.loja.dao.CategoriaDAO;
+import br.com.alura.loja.dao.ProdutoDAO;
+import br.com.alura.loja.modelo.Categoria;
 import br.com.alura.loja.modelo.Produto;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.math.BigDecimal;
+
+import static br.com.alura.loja.util.JPAUtil.getEntityManager;
 
 public class CadastroDeProduto {
     public static void main(String[] args) {
 
-        EntityManagerFactory factory = Persistence
-                .createEntityManagerFactory("loja");
-        EntityManager em = factory.createEntityManager();
+        Categoria celulares = new Categoria("Celulares");
+        Produto celular = new Produto("iphone", "muito legal", new BigDecimal("800"), celulares);
 
-        Produto celular = new Produto();
-        celular.setNome("Iphone");
-        celular.setDescricao("Muito legal");
-        celular.setPreco(new BigDecimal("800"));
+        EntityManager em = getEntityManager();
+        ProdutoDAO produtoDAO = new ProdutoDAO(em);
+        CategoriaDAO categoriaDAO = new CategoriaDAO(em);
 
-       
+
 
 
         em.getTransaction().begin();
-
-        em.persist(celular);
-
-
+        categoriaDAO.cadastrarCategoria(celulares);
+        produtoDAO.cadastrarProduto(celular);
         em.getTransaction().commit();
         em.close();
 
