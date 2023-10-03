@@ -15,15 +15,15 @@ import static br.com.alura.loja.util.JPAUtil.getEntityManager;
 public class CadastroDeProduto {
     public static void main(String[] args) {
 
-        
+
 
 
         EntityManager em = getEntityManager();
         ProdutoDAO produtoDAO = new ProdutoDAO(em);
         Produto p = produtoDAO.buscarPorId(1l);
         System.out.println(p.getPreco());
-        List<Produto> todos = produtoDAO.buscarTodos();
-        todos.forEach(p2 -> System.out.println(p.getNome()));
+        List<Produto> nome = produtoDAO.buscarPorCategoria("Celulares");
+        nome.forEach(p2 -> System.out.println(p.getNome()));
 
 
 
