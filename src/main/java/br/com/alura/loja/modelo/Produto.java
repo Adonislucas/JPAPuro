@@ -10,7 +10,7 @@ public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String nome;
     private String descricao;
     private BigDecimal preco;
@@ -49,12 +49,12 @@ public class Produto {
         this.categoria = categoria;
     }
 
-    public Long getId() {
+    public Integer getId() {
 
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
 
         this.id = id;
     }

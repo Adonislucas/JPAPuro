@@ -12,12 +12,12 @@ public class Pedido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private LocalDate data = LocalDate.now();
     @ManyToOne
     private Cliente cliente;
 
-    private BigDecimal valorTotal;
+    private BigDecimal valorTotal = BigDecimal.ZERO;
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<ItemPedido> itens = new ArrayList<>();
 
@@ -32,7 +32,9 @@ public class Pedido {
 
     public void adicionarItem(ItemPedido item) {
         item.setPedido(this);
-        this.itens.add(item); 
+        this.itens.add(item);
+        this.valorTotal = this.valorTotal.add(item.getValor());
+
     }
 
 

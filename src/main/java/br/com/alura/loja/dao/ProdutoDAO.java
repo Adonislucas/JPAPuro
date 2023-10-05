@@ -22,9 +22,18 @@ public class ProdutoDAO {
         this.em.persist(produto);
     }
 
-    public Produto buscarPorId(Long id){
+    public Produto buscarPorId(Integer id){
 
         return em.find(Produto.class, id);
+    }
+    public void atualizarProduto(Produto produto){
+
+        this.em.merge(produto);
+    }
+
+    public void removerProduto(Produto produto){
+        produto = this.em.merge(produto);
+        this.em.remove(produto);
     }
 
     public List<Produto> buscarTodos(){

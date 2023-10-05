@@ -14,6 +14,7 @@ public class ItemPedido {
 
     private BigDecimal precoUnitario;
     private Integer quantidade;
+
     @ManyToOne
     private Produto produto;
     @ManyToOne
@@ -28,6 +29,7 @@ public class ItemPedido {
 
 
     }
+
 
     public Long getId() {
         return id;
@@ -65,7 +67,15 @@ public class ItemPedido {
         return pedido;
     }
 
+
     public void setPedido(Pedido pedido) {
         this.pedido = pedido;
     }
+
+    public BigDecimal getValor(){
+        return precoUnitario.multiply(new BigDecimal(quantidade));
+    }
+
 }
+
+
