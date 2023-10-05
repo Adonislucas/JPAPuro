@@ -49,10 +49,7 @@ public class CadastroDePedido {
 
 
 
-    private static Scanner leitura (){
-        Scanner scan = new Scanner(System.in);
-        return scan;
-    }
+
     private static void populaBD() {
         Cliente cliente = new Cliente("Rodrigo", "123456");
         Categoria celulares = new Categoria("Celulares");
