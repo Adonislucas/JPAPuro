@@ -11,6 +11,7 @@ public class ItemPedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private BigDecimal precoUnitario;
     private Integer quantidade;
     @ManyToOne
@@ -23,7 +24,9 @@ public class ItemPedido {
         this.quantidade = quantidade;
         this.produto = produto;
         this.pedido = pedido;
-        this.precoUnitario = produto.getPreco();
+        this.precoUnitario=produto.getPreco();
+
+
     }
 
     public Long getId() {

@@ -23,7 +23,8 @@ public class ProdutoDAO {
     }
 
     public Produto buscarPorId(Long id){
-       return em.find(Produto.class, id);
+
+        return em.find(Produto.class, id);
     }
 
     public List<Produto> buscarTodos(){

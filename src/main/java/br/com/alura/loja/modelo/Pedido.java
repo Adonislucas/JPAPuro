@@ -11,12 +11,14 @@ import java.util.List;
 public class Pedido {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDate data = LocalDate.now();
     @ManyToOne
     private Cliente cliente;
+
     private BigDecimal valorTotal;
-    @OneToMany(mappedBy = "pedido")
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
     private List<ItemPedido> itens = new ArrayList<>();
 
     public Pedido(Cliente cliente ) {
