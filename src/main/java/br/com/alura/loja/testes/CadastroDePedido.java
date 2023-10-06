@@ -54,6 +54,9 @@ public class CadastroDePedido {
         System.out.println(totalVendido);
         List<RelatorioVendasVo> relatorio =pedidoDAO.relatorioDeVendas();
         relatorio.forEach(System.out :: println);
+
+         produtoDAO.buscarPorParametro("PS5",null,null);
+
         em.close();
 
 
